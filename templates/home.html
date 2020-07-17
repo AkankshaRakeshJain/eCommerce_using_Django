@@ -1,0 +1,39 @@
+
+{% include 'baseforhome.html' %}
+{% block content %}
+    
+    <div class="row">
+        <div class="col-md-2">
+            <!-- categories -->
+            <div class="list-group mt-3">
+                <a href="/" class="list-group-item list-group-item-action">All</a>
+               {% for i in categories %}
+                    <a href="/category/{{i.pk}}" class="list-group-item list-group-item-action">{{i}}</a>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="col-md-10">
+            <!-- images -->
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <div class="card-columns">
+                        {% for i in product%}
+                        <div class="card">
+                            <img class="card-img-top" src="/images/{{i.image}}" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">{{i.brand}}</h5>
+                                <button class='btn btn-outline-secondary add-btn '>Add to Cart</button>
+                                <a class='btn btn-outline-success' href="#" onclick="showModelwithImage('{{ i.image }}')" >View</a>
+                                <h4 style="display:inline-block; float: right">
+                                    <strong>${{i.price}}</strong>
+                                </h4>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content%}

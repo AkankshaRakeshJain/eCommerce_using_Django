@@ -1,0 +1,71 @@
+.bg{
+  background-color : plum;
+}
+#cart-icon{
+width:25px;
+display: inline-block;
+margin-left: 15px;
+}
+
+.col-lg-12{
+margin-top: 10px;
+}
+.box-element{
+box-shadow:hsl(0, 0%, 80%) 0 0 16px;
+background-color: #fff;
+border-radius: 4px;
+padding: 10px;
+}
+
+.cart-row{
+display: flex;
+  align-items: flex-stretch;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ececec;
+}
+.row-image{
+width: 100px;
+}
+.quantity{
+display: inline-block;
+font-weight: 700;
+padding-right:10px;
+}
+.chg-quantity{
+width: 12px;
+cursor: pointer;
+display: block;
+margin-top: 5px;
+transition:.1s;
+}
+
+.chg-quantity:hover{
+opacity: .6;
+}
+.delete-btn{
+display: inline-block;
+Cursor: pointer;
+}
+.delete-btn {
+width: 18px;
+height: 17px;
+background: url(&amp;quot;delete-icn.svg&amp;quot;) no-repeat center;
+}
+.item {
+padding: 20px 30px;
+height: 120px;
+display: flex;
+}
+.buttons {
+position: relative;
+padding-top: 30px;
+margin-right: 60px;
+}
+.delete-btn{
+display: inline-block;
+Cursor: pointer;
+width: 18px;
+height: 17px;
+background: url(&amp;quot;delete-icn.svg&amp;quot;) no-repeat center;
+}

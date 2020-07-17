@@ -1,0 +1,64 @@
+{% include 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box-element">
+                <a class="btn btn-light" href="{% url 'home' %}">&#x2190; Continue Shopping</a>
+                <p style="float:right; margin:5px;" >(1/4)</p>
+
+                <br>
+                <br>
+                <table class="table">
+                    <tr>
+                        <th>
+                            <h5>Items: <strong>{{order.get_cart_total_items}}</strong></h5>
+                        </th>
+                        <th>
+                            <h5 style="float:right">Total: <strong>${{order.get_cart_total_price}}</strong></h5>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+            <br>
+            <div class="box-element">
+                <div class="cart-row">
+                    <div style="flex:2"></div>
+                    <div style="flex:2"><strong>Product</strong></div>
+                    <div style="flex:1"><strong>Price</strong></div>
+                    <div style="flex:1"><strong>Quantity</strong></div>
+                    <div style="flex:1"><strong>Total</strong></div>
+                </div>
+                {% for i in items %}
+                <div class="cart-row">
+                    <div style="flex:2"><img class="row-image" src="{{i.product.get_image}}"></div>
+                    <div style="flex:2">
+                        <p><strong>{{i.product}}</strong><br>({{i.product.name}})</p>
+                    </div>
+                    <div style="flex:1">
+                        <p>&nbsp;&nbsp; ${{i.product.price|floatformat:2}}</p>
+                    </div>
+                    <div style="flex:1">
+                        <div class="quantity">
+                            <img class="chg-quantity" src="{% static  'others/plus.png' %}">
+                        </div>
+                        <p class="quantity">&nbsp;{{i.quantity}}</p>
+                        <div class="quantity">
+                            <img class="chg-quantity" src="{% static  'others/minus.jpg' %}">
+                        </div>
+                    </div>
+                    <div style="flex:1">
+                        <p>&nbsp; &nbsp; ${{i.get_total|floatformat:2}}</p>
+                    </div>
+                    <div class="quantity">
+                        <img class="chg-quantity" src="{% static  'others/delete.png' %}">
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <a style="float:right; margin:5px;" class="btn btn-success" href="{% url 'checkout' %}">Checkout &#x2192;</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}
